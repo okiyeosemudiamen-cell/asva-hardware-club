@@ -1,19 +1,25 @@
-#include <iostream> // This is the header file library
-#include <string> //This is the header file for the string library
-#include <cmath> //this is the header file for the math library
+#include <iostream> //Used for input and output stream
+#include <string> //Library used for handling string 
+#include <cmath> //library used for mat operations
 
 using namespace std;
 
 int main(){
-	int current, voltage, resistance, power;// Declaring all the variables that are integers
+	double current, voltage, resistance, power;// Declaring all the variables that are integers
 	string name; //Declaring the string variable
+	
 	cout<< "Please input your name: " ;
-	cin >> name;//  cin for collecting inputs
+	cin >> name;
 	cout<< "Please input the Voltage: ";
 	cin >> voltage;
 	cout<< "Please input the Resistance: ";
 	cin >> resistance; 
-	current = voltage/resistance;
+
+	if (resistance==0){
+		cout<< "Resistance cannot be zero. \n";//To prevent division by zero
+		return 1;
+	} 
+	current = voltage/resistance; // calculating current using ohm's law
 	power= voltage*current;
 	cout << "Name: "<< name << "\n" << "Current: "<< current << "A\n" << "Power: " << power << "W\n";
 }
